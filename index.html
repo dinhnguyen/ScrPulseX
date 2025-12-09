@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>Screen Test Pro - Mobile Display Diagnostics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main Test Display Area -->
+    <div id="testDisplay" class="test-display"></div>
+
+    <!-- Floating Menu Toggle Button -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+    </button>
+
+    <!-- Menu Backdrop -->
+    <div id="menuBackdrop" class="menu-backdrop"></div>
+
+    <!-- Control Panel -->
+    <div id="controlPanel" class="control-panel">
+        <div class="control-header">
+            <h1>Screen Test Pro</h1>
+            <button id="togglePanel" class="btn-icon" aria-label="Toggle Panel">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="control-content">
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button id="quickTest" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    Quick Test (10s)
+                </button>
+                <button id="fullTest" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4" />
+                        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                    </svg>
+                    Full Test (2m)
+                </button>
+            </div>
+
+            <!-- Test Categories -->
+            <div class="test-categories">
+                <div class="category">
+                    <h3>Core Tests</h3>
+                    <div class="test-grid">
+                        <button class="test-btn" data-test="solid-black">Black</button>
+                        <button class="test-btn" data-test="solid-white">White</button>
+                        <button class="test-btn" data-test="solid-red">Red</button>
+                        <button class="test-btn" data-test="solid-green">Green</button>
+                        <button class="test-btn" data-test="solid-blue">Blue</button>
+                        <button class="test-btn" data-test="solid-yellow">Yellow</button>
+                        <button class="test-btn" data-test="solid-purple">Purple</button>
+                        <button class="test-btn" data-test="solid-cyan">Cyan</button>
+                        <button class="test-btn" data-test="gradient-h">Gradient H</button>
+                        <button class="test-btn" data-test="gradient-v">Gradient V</button>
+                        <button class="test-btn" data-test="rgb-pattern">RGB Pattern</button>
+                        <button class="test-btn" data-test="sharpness">Sharpness</button>
+                        <button class="test-btn" data-test="scrolling">Scrolling</button>
+                        <button class="test-btn" data-test="flicker">Flicker</button>
+                        <button class="test-btn" data-test="contrast">High Contrast</button>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3>Advanced Diagnostics</h3>
+                    <div class="test-grid">
+                        <button class="test-btn" data-test="touch-grid">Touch Grid</button>
+                        <button class="test-btn" data-test="dead-zone">Dead Zones</button>
+                        <button class="test-btn" data-test="brightness">Auto Brightness</button>
+                        <button class="test-btn" data-test="flash">Flash Mode</button>
+                        <button class="test-btn" data-test="pixel-locator">Pixel Locator</button>
+                        <button class="test-btn" data-test="burn-in">Burn-in Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="control-row">
+                    <label>
+                        <input type="checkbox" id="autoPlay">
+                        <span>Auto-play</span>
+                    </label>
+                    <select id="autoPlaySpeed">
+                        <option value="5000">5s</option>
+                        <option value="10000" selected>10s</option>
+                        <option value="30000">30s</option>
+                    </select>
+                </div>
+                <div class="control-row">
+                    <button id="darkMode" class="btn-icon" aria-label="Toggle Dark Mode">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                        </svg>
+                    </button>
+                    <button id="fullscreen" class="btn-icon" aria-label="Toggle Fullscreen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+                        </svg>
+                    </button>
+                    <button id="techView" class="btn-icon" aria-label="Technician View">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Test Info -->
+            <div id="testInfo" class="test-info">
+                <p>Select a test to begin</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Instructions Overlay -->
+    <div id="instructionsOverlay" class="instructions-overlay hidden">
+        <div class="instructions-content">
+            <h2 id="instructionTitle"></h2>
+            <p id="instructionText"></p>
+            <button id="closeInstructions" class="btn btn-primary">Got it</button>
+        </div>
+    </div>
+
+    <!-- Touch Feedback -->
+    <div id="touchFeedback" class="touch-feedback hidden"></div>
+
+    <!-- Progress Indicator -->
+    <div id="progressBar" class="progress-bar hidden">
+        <div class="progress-fill"></div>
+        <span class="progress-text"></span>
+    </div>
+
+    <!-- Navigation Hints -->
+    <div id="navHints" class="nav-hints hidden">
+        <div class="hint hint-left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </div>
+        <div class="hint hint-right">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
