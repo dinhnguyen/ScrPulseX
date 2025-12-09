@@ -58,17 +58,17 @@ A comprehensive mobile screen testing web application for detecting display defe
 5. Select your repository
 6. Configure build settings:
    - **Framework preset**: None
-   - **Build command**: `npx wrangler deploy`
+   - **Build command**: (leave blank or use `echo "No build needed"`)
    - **Build output directory**: `/` (root directory)
 7. Click **Save and Deploy**
 8. Your app will be live at `https://your-project.pages.dev`
 
-> **Note**: The `wrangler.toml` file is already configured to serve static assets from the root directory.
+> **Note**: This is a static HTML/CSS/JS site with no build process. Cloudflare Pages will serve files directly from the repository root.
 
-### Method 2: Direct Upload (Simpler)
+### Method 2: Direct Upload (Fastest)
 1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
 2. Navigate to **Workers & Pages** → **Create application** → **Pages** → **Upload assets**
-3. Drag and drop your project folder, or upload these files:
+3. Drag and drop your project folder, or select these files:
    - `index.html`
    - `styles.css`
    - `app.js`
