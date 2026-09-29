@@ -17,3 +17,5 @@
 .shared/ui-ux-pro-max/data/ux-guidelines.csv
 .shared/ui-ux-pro-max/scripts/core.py
 .shared/ui-ux-pro-max/scripts/search.py
+
+node_modules/

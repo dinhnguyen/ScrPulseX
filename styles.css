@@ -414,7 +414,7 @@ body {
     right: 0;
     height: 4px;
     background: rgba(0, 0, 0, 0.1);
-    z-index: 101;
+    z-index: 160;
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -453,8 +453,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 16px;
-    z-index: 99;
-    pointer-events: none;
+    z-index: 155;
+    pointer-events: auto;
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -473,7 +473,14 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
     animation: pulse 2s infinite;
+}
+
+.hint:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 @keyframes pulse {

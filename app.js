@@ -91,6 +91,24 @@ class ScreenTestApp {
         this.testDisplay.addEventListener('touchstart', (e) => this.handleTouch(e));
         this.testDisplay.addEventListener('touchmove', (e) => this.handleTouch(e));
         this.testDisplay.addEventListener('touchend', () => this.hideTouchFeedback());
+
+        // Navigation hints
+        const hintLeft = document.querySelector('.hint-left');
+        const hintRight = document.querySelector('.hint-right');
+        if (hintLeft) {
+            hintLeft.addEventListener('click', () => this.previousTest());
+            hintLeft.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.previousTest();
+            });
+        }
+        if (hintRight) {
+            hintRight.addEventListener('click', () => this.nextTest());
+            hintRight.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.nextTest();
+            });
+        }
     }
 
     setupSwipeGestures() {
